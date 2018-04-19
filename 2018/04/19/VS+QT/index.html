@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VS2013+QT搭建QT编程环境 | 冰雪极客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="搭建在VS2013上运行的QT环境">
+<meta name="keywords" content="其他,必备技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS2013+QT搭建QT编程环境">
+<meta property="og:url" content="http://blaxb.club/2018/04/19/VS+QT/index.html">
+<meta property="og:site_name" content="冰雪极客">
+<meta property="og:description" content="搭建在VS2013上运行的QT环境">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/2..PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/3..PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/2..PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/6..PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/vs1.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/vs2.PNG">
+<meta property="og:updated_time" content="2017-08-24T12:07:28.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VS2013+QT搭建QT编程环境">
+<meta name="twitter:description" content="搭建在VS2013上运行的QT环境">
+<meta name="twitter:image" content="http://ouefev05d.bkt.clouddn.com/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+  <script src="https://leancloud.cn/scripts/lib/av-0.4.6.min.js"></script>
+  <script>AV.initialize("xXLDDTEJF3TRoNB9faUcGDzD-gzGzoHsz", "US42m8rvmJXnByepnyYvYA27");</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/images/avatar.jpg">
+    <h2 class="author">冰哥</h2>
+    <h3 class="description">安全工程狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="必备技能-VS+QT" class="wow slideInRight article article-type-必备技能" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/VS+QT/" class="article-date">
+  <time class="post-time" datetime="2018-04-19T13:52:45.945Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br/>
+    <span class="post-day">19</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VS2013+QT搭建QT编程环境
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/必备技能/">必备技能</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>搭建在VS2013上运行的QT环境</p>
+<a id="more"></a>
+<h2 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h2><h3 id="一-需要下载的包："><a href="#一-需要下载的包：" class="headerlink" title="一.需要下载的包："></a>一.需要下载的包：</h3><ul>
+<li><ol>
+<li>vs2013（自己去下载）    </li>
+<li><a href="http://ftp.vim.org/languages/qt/archive/qt/5.3/5.3.2/" target="_blank" rel="noopener">qt5.3.2x64opengl</a>   </li>
+<li><a href="https://mirrors.ustc.edu.cn/qtproject/archive/vsaddin/qt-vs-addin-1.2.4-opensource.exe" target="_blank" rel="noopener">qt-vs-addin-1.2.4-opensource.exe</a></li>
+</ol>
+</li>
+</ul>
+<h3 id="二-安装"><a href="#二-安装" class="headerlink" title="二.安装"></a>二.安装</h3><ul>
+<li><ol>
+<li>vs和qt的安装全部一律采用默认安装; 建议修改qt的安装盘到d盘</li>
+</ol>
+</li>
+</ul>
+<h3 id="三-配置qt环境"><a href="#三-配置qt环境" class="headerlink" title="三.配置qt环境"></a>三.配置qt环境</h3><ul>
+<li><p>1.安装qt-vs-addin-1.2.4-opensource.exe之后，vs上会多一个QT选项，点击QT选项<br>如图<br><img src="http://ouefev05d.bkt.clouddn.com/1.png" alt="图一"><br>选择QT Options选项，选择add—&gt;添加<br>Version name选择QT5.3.2<br>Path选择D:\Qt\Qt5.3.2\5.3\msvc2013_64_opengl  ( 注意: 安装了不同的qt版本,那么上面的path也会不尽相同,不过最终都是找到带有msvc开头的.  若是qt版本不一样,请同时更换相应的版本号 )</p>
+<p>如下图所示<br><img src="http://ouefev05d.bkt.clouddn.com/2..PNG" alt="图二"></p>
+</li>
+</ul>
+<h3 id="四-新建工程"><a href="#四-新建工程" class="headerlink" title="四.新建工程"></a>四.新建工程</h3><p>   注意;  在建立工程之前, 请注意qt setting的配置,如下图(红框内一定要选中你上面配置了的, 否则qt会报错,如下图)<br>   <img src="http://ouefev05d.bkt.clouddn.com/3..PNG" alt="图三"></p>
+<p> 此时直接编译会报错, 需要配置编译环境</p>
+<p> 1.选中test工程(第一步)</p>
+<p> 2.选择x64平台(第二步)</p>
+<p> 3.确认qt setting中的下拉框选中设置的Qt5.3.2(如上图配置Default Qt/Win version的图)</p>
+<p> 4.在qt菜单下选择 qt-project-settings 设置version为Qt5.3.2 (第三步)      </p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/2..PNG" alt="图六"></p>
+<p> 5.右键项目名，选Qt project setting ,在Version处选Qt5.3.2</p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/6..PNG" alt="图五"></p>
+<p> 6.在Debug处选X64   </p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/vs1.PNG" alt="vs1"></p>
+<p> 7.对工程右键属性添加qt库，在自己安装的盘下面找</p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/vs2.PNG" alt="vs2"></p>
+<p>   重新生成，启动运行。<br>成功！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2018/04/19/VS+QT/" data-id="cjg6l840b0000is7chblsl8zu" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/19/安装JDK,并安装pycharm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在Ubuntu中怎么安装JDK,并安装pycharm
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/19/linux上安装pptpd的python脚本文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">一个可以在linux上安装pptpd的python脚本文件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+    </section>
+    <!-- UY END -->
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">冰雪极客</h1>
+    <h2 class="blog-subtitle">不忘初心  ~~~~~~~~~~  方得始终</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/images/avatar.jpg">
+    <h2 class="author">冰哥</h2>
+    <h3 class="description">安全工程狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/zhuxuebing123" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blxab.club/2017/08/07/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/" target="_blank" title="学习网站大全">
+          学习网站大全
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>重要学习网站</h2>
+      
+        <a class="hvr-bounce-in" href="http://bbs.pediy.com/" target="_blank" title="看雪论坛">
+          看雪论坛
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.shiyanbar.com/courses/tag/1" target="_blank" title="CTF实验吧">
+          CTF实验吧
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.fishc.com/" target="_blank" title="鱼C论坛">
+          鱼C论坛
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.52pojie.cn/portal.php" target="_blank" title="吾爱破解">
+          吾爱破解
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://cuiqingcai.com/1052.html" target="_blank" title="爬虫教程">
+          爬虫教程
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.imooc.com/?from=360ppc" target="_blank" title="慕课网">
+          慕课网
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+    
+    <div class="widget-wrap">
+    <h3 class="widget-title">浏览数目</h3>
+    <div class="widget">
+      <ul class="popularlist">
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 冰哥<br>
+      
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+    
+  </div>
+</footer>
+
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("xXLDDTEJF3TRoNB9faUcGDzD-gzGzoHsz", "US42m8rvmJXnByepnyYvYA27");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+        url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query=new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results){
+            if(results.length>0)
+            {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            }
+            else
+            {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter){
+                    //alert('New object created');
+                    },
+                    error: function(newcounter,error){
+                    alert('Failed to create');
+                    }
+                    });
+            }
+        },
+        error: function(error){
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function(){
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1)
+       addCount(Counter);
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results){
+                for(var i=0;i<results.length;i++)    
+                {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error){
+            alert("Error:"+error.code+" "+error.message);
+        }
+        }
+    )
+    });
+  </div>
+</body>
+</html>
