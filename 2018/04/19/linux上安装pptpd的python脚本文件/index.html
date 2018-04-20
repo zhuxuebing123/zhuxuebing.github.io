@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="冰雪极客">
 <meta property="og:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-20T07:27:57.120Z">
+<meta property="og:updated_time" content="2018-04-20T07:36:50.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个可以在linux上安装pptpd的python脚本文件">
 <meta name="twitter:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
@@ -111,77 +111,30 @@
         <p>python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端</p>
 <a id="more"></a>
 <h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><h3 id="一-centos下的pptpd服务器代码："><a href="#一-centos下的pptpd服务器代码：" class="headerlink" title="一.centos下的pptpd服务器代码："></a>一.centos下的pptpd服务器代码：</h3><ul>
-<li><p>1.代码如下：</p>
-<p>  import subprocess<br>  subprocess.call(‘yum install ppp -y’,shell=True)<br>  subprocess.call(‘rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True</a>)<br>  subprocess.call(‘yum install pptpd -y’,shell=True)</p>
-<p>  with open(“/etc/pptpd.conf”, “r”) as f1:<br>  d1 = f1.readlines()<br>  with open(“/etc/pptpd.conf”, “w”) as f_w1:</p>
-<pre><code>for line in d1:
-    line = line.replace(&quot;#localip 192.168.0.1&quot;, &quot;localip 192.168.1.1&quot;)
-    line = line.replace(&quot;#remoteip 192.168.0.234-238,192.168.0.245&quot;, &quot;remoteip 192.168.1.2-238&quot;)
-    f_w1.write(line)     
-</code></pre><p>  with open(“/etc/ppp/options.pptpd”, “r”) as f2:</p>
-<pre><code>d2 = f2.readlines()
-</code></pre><p>  with open(“/etc/ppp/options.pptpd”, “w”) as f_w2:</p>
-<pre><code>for line in d2:
-    line = line.replace(&quot;#ms-dns 10.0.0.1&quot;, &quot;ms-dns 8.8.8.8&quot;)
-    line = line.replace(&quot;#ms-dns 10.0.0.2&quot;, &quot;ms-dns 4.4.4.4&quot;)
-    f_w2.write(line)
-</code></pre><p>  with open(“/etc/sysctl.conf”, “r”) as f4:</p>
-<pre><code>d4 = f4.readlines()
-</code></pre><p>  with open(“/etc/sysctl.conf”, “w”) as f_w4:</p>
-<pre><code>for line in d4:
-    line = line.replace(&quot;net.ipv4.ip_forward = 0&quot;, &quot;net.ipv4.ip_forward = 1&quot;)
-    f_w4.write(line)
-</code></pre><p>  subprocess.call(‘sysctl -p’,shell=True)</p>
-<p>  f3=open(“/etc/ppp/chap-secrets”,’a’)<br>  for i in range(1,101):</p>
-<pre><code>f3.write(&quot;user&quot;+str(i)+&quot; pptpd&quot;+&quot; user&quot;+str(i)+&quot;yourmima&quot;+&quot; *&quot;+&quot;\n&quot;)
-</code></pre><p>  subprocess.call(‘iptables -D INPUT -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>  subprocess.call(‘iptables -D FORWARD -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>  subprocess.call(‘iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>  subprocess.call(‘iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE’,shell=True)<br>  subprocess.call(‘service iptables save’,shell=True)<br>  subprocess.call(‘chkconfig pptpd on’,shell=True)<br>  subprocess.call(‘chkconfig iptables on’,shell=True)<br>  subprocess.call(‘service iptables restart’,shell=True)<br>  subprocess.call(‘service pptpd start’,shell=True)</p>
-</li>
+<li>1.代码如下：<br>import subprocess<br>subprocess.call(‘yum install ppp -y’,shell=True)<br>subprocess.call(‘rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True</a>)<br>subprocess.call(‘yum install pptpd -y’,shell=True)</li>
 </ul>
-<h3 id="二-centos下的pptpd连接客户端代码："><a href="#二-centos下的pptpd连接客户端代码：" class="headerlink" title="二.centos下的pptpd连接客户端代码："></a>二.centos下的pptpd连接客户端代码：</h3><pre><code>import subprocess
-subprocess.call(&apos;yum -y install pptp pptp-setup&apos;,shell=True)
-subprocess.call(&apos;sudo modprobe nf_conntrack_pptp&apos;,shell=True)
-subprocess.call(&apos;pptpsetup --create VPN --server 192.168.19.187 --username user2 --password user2yourmima --encrypt&apos;,shell=True)
-subprocess.call(&apos;pppd call VPN&apos;,shell=True)
-subprocess.call(&apos;ip a |grep ppp&apos;,shell=True)
-</code></pre><ul>
-<li><h3 id="三-ubuntu下的pptpd服务器代码："><a href="#三-ubuntu下的pptpd服务器代码：" class="headerlink" title="三.ubuntu下的pptpd服务器代码："></a>三.ubuntu下的pptpd服务器代码：</h3><p>  import subprocess<br>  subprocess.call(‘sudo apt-get install pptpd -y’,shell=True)</p>
-<p>  with open(“/etc/pptpd.conf”, “r”) as f1:</p>
-<pre><code>d1 = f1.readlines()
-</code></pre><p>  with open(“/etc/pptpd.conf”, “w”) as f_w1:</p>
-<pre><code>for line in d1:
-    line = line.replace(&quot;#localip 192.168.0.1&quot;, &quot;localip 192.168.1.1&quot;)
-    line = line.replace(&quot;#remoteip 192.168.0.234-238,192.168.0.245&quot;, &quot;remoteip 192.168.1.2-238&quot;)
-    f_w1.write(line)     
-</code></pre><p>  with open(“/etc/ppp/pptpd-options”, “r”) as f2:</p>
-<pre><code>d2 = f2.readlines()
-</code></pre><p>  with open(“/etc/ppp/pptpd-options”, “w”) as f_w2:</p>
-<pre><code>for line in d2:
-     line = line.replace(&quot;#ms-dns 10.0.0.1&quot;, &quot;ms-dns 8.8.8.8&quot;)
-     line = line.replace(&quot;#ms-dns 10.0.0.2&quot;, &quot;ms-dns 8.8.4.4&quot;)
-     f_w2.write(line)
-</code></pre><p>  f3=open(“/etc/ppp/chap-secrets”,’a’)<br>  for i in range(1,101):</p>
-<pre><code>f3.write(&quot;user&quot;+str(i)+&quot; pptpd&quot;+&quot; user&quot;+str(i)+&quot;yourmima&quot;+&quot; *&quot;+&quot;\n&quot;)
-</code></pre><p>  with open(“/etc/sysctl.conf”, “r”) as f4:</p>
-<pre><code>d4 = f4.readlines()
-</code></pre><p>  with open(“/etc/sysctl.conf”, “w”) as f_w4:</p>
-<pre><code>for line in d4:
-     line = line.replace(&quot;#net.ipv4.ip_forward=1&quot;, &quot;net.ipv4.ip_forward=1&quot;)
-     f_w4.write(line)
-</code></pre><p>  subprocess.call(‘sysctl -p’,shell=True)<br>  subprocess.call(‘/etc/init.d/procps restart’,shell=True)</p>
-<p>  subprocess.call(‘sudo apt-get install iptables’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -p tcp –dport 1723 -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -A OUTPUT -p tcp –sport 1723 -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A OUTPUT -p gre -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A FORWARD -i ppp+ -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A FORWARD -o ppp+ -j ACCEPT’,shell=True)<br>  subprocess.call(‘iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 22 -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>  subprocess.call(‘sudo iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>  subprocess.call(‘sudo iptables -A POSTROUTING -t nat -s 192.168.1.0/24 -j SNAT –to 192.168.19.156’,shell=True)<br>  subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>  f5=open(“/etc/network/interfaces”,’a’)<br>  f5.write(“pre-up iptables-restore &lt;/etc/iptables-rules”)<br>  subprocess.call(‘sudo iptables-save &gt;/etc/iptables-rules’,shell=True)<br>  subprocess.call(‘sudo /etc/init.d/procps restart’,shell=True)<br>  subprocess.call(‘sudo /etc/init.d/pptpd restart’,shell=True)</p>
-</li>
+<p>with open(“/etc/pptpd.conf”, “r”) as f1:<br>d1 = f1.readlines()<br>with open(“/etc/pptpd.conf”, “w”) as f_w1:<br>    for line in d1:<br>        line = line.replace(“#localip 192.168.0.1”, “localip 192.168.1.1”)<br>        line = line.replace(“#remoteip 192.168.0.234-238,192.168.0.245”, “remoteip 192.168.1.2-238”)<br>        f_w1.write(line)     </p>
+<p>with open(“/etc/ppp/options.pptpd”, “r”) as f2:<br>    d2 = f2.readlines()<br>with open(“/etc/ppp/options.pptpd”, “w”) as f_w2:<br>     for line in d2:<br>         line = line.replace(“#ms-dns 10.0.0.1”, “ms-dns 8.8.8.8”)<br>         line = line.replace(“#ms-dns 10.0.0.2”, “ms-dns 4.4.4.4”)<br>         f_w2.write(line)</p>
+<p>with open(“/etc/sysctl.conf”, “r”) as f4:<br>    d4 = f4.readlines()<br>with open(“/etc/sysctl.conf”, “w”) as f_w4:<br>    for line in d4:<br>        line = line.replace(“net.ipv4.ip_forward = 0”, “net.ipv4.ip_forward = 1”)<br>        f_w4.write(line)</p>
+<p>subprocess.call(‘sysctl -p’,shell=True)</p>
+<p>f3=open(“/etc/ppp/chap-secrets”,’a’)<br>for i in range(1,101):<br>    f3.write(“user”+str(i)+” pptpd”+” user”+str(i)+”yourmima”+” *”+”\n”)</p>
+<p>subprocess.call(‘iptables -D INPUT -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>subprocess.call(‘iptables -D FORWARD -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>subprocess.call(‘iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>subprocess.call(‘iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE’,shell=True)<br>subprocess.call(‘service iptables save’,shell=True)<br>subprocess.call(‘chkconfig pptpd on’,shell=True)<br>subprocess.call(‘chkconfig iptables on’,shell=True)<br>subprocess.call(‘service iptables restart’,shell=True)<br>subprocess.call(‘service pptpd start’,shell=True)</p>
+<h3 id="二-centos下的pptpd连接客户端代码："><a href="#二-centos下的pptpd连接客户端代码：" class="headerlink" title="二.centos下的pptpd连接客户端代码："></a>二.centos下的pptpd连接客户端代码：</h3><p>import subprocess<br>subprocess.call(‘yum -y install pptp pptp-setup’,shell=True)<br>subprocess.call(‘sudo modprobe nf_conntrack_pptp’,shell=True)<br>subprocess.call(‘pptpsetup –create VPN –server 192.168.19.187 –username user2 –password user2yourmima –encrypt’,shell=True)<br>subprocess.call(‘pppd call VPN’,shell=True)<br>subprocess.call(‘ip a |grep ppp’,shell=True)</p>
+<ul>
+<li><h3 id="三-ubuntu下的pptpd服务器代码："><a href="#三-ubuntu下的pptpd服务器代码：" class="headerlink" title="三.ubuntu下的pptpd服务器代码："></a>三.ubuntu下的pptpd服务器代码：</h3></li>
 </ul>
-<h3 id="四-ubuntu下的pptpd连接客户端代码："><a href="#四-ubuntu下的pptpd连接客户端代码：" class="headerlink" title="四.ubuntu下的pptpd连接客户端代码："></a>四.ubuntu下的pptpd连接客户端代码：</h3><pre><code>import subprocess
-subprocess.call(&apos;sudo apt-get install pptp pptp-setup&apos;,shell=True)
-subprocess.call(&apos;sudo modprobe nf_conntrack_pptp&apos;,shell=True)
-subprocess.call(&apos;pptpsetup --create VPN --server 192.168.19.187 --username user2 --password user2yourmima --encrypt&apos;,shell=True)
-subprocess.call(&apos;pppd call VPN&apos;,shell=True)
-subprocess.call(&apos;ip a |grep ppp&apos;,shell=True)
-</code></pre>
+<p>import subprocess<br>subprocess.call(‘sudo apt-get install pptpd -y’,shell=True)</p>
+<p>with open(“/etc/pptpd.conf”, “r”) as f1:<br>    d1 = f1.readlines()<br>with open(“/etc/pptpd.conf”, “w”) as f_w1:<br>    for line in d1:<br>        line = line.replace(“#localip 192.168.0.1”, “localip 192.168.1.1”)<br>        line = line.replace(“#remoteip 192.168.0.234-238,192.168.0.245”, “remoteip 192.168.1.2-238”)<br>        f_w1.write(line)     </p>
+<p>with open(“/etc/ppp/pptpd-options”, “r”) as f2:<br>    d2 = f2.readlines()<br>with open(“/etc/ppp/pptpd-options”, “w”) as f_w2:<br>    for line in d2:<br>         line = line.replace(“#ms-dns 10.0.0.1”, “ms-dns 8.8.8.8”)<br>         line = line.replace(“#ms-dns 10.0.0.2”, “ms-dns 8.8.4.4”)<br>         f_w2.write(line)</p>
+<p>f3=open(“/etc/ppp/chap-secrets”,’a’)<br>for i in range(1,101):<br>    f3.write(“user”+str(i)+” pptpd”+” user”+str(i)+”yourmima”+” *”+”\n”)</p>
+<p>with open(“/etc/sysctl.conf”, “r”) as f4:<br>    d4 = f4.readlines()<br>with open(“/etc/sysctl.conf”, “w”) as f_w4:<br>    for line in d4:<br>         line = line.replace(“#net.ipv4.ip_forward=1”, “net.ipv4.ip_forward=1”)<br>         f_w4.write(line)<br>subprocess.call(‘sysctl -p’,shell=True)<br>subprocess.call(‘/etc/init.d/procps restart’,shell=True)</p>
+<p>subprocess.call(‘sudo apt-get install iptables’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A OUTPUT -p tcp –sport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A OUTPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -i ppp+ -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -o ppp+ -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 22 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>subprocess.call(‘sudo iptables -A POSTROUTING -t nat -s 192.168.1.0/24 -j SNAT –to 192.168.19.156’,shell=True)<br>subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>f5=open(“/etc/network/interfaces”,’a’)<br>f5.write(“pre-up iptables-restore &lt;/etc/iptables-rules”)<br>subprocess.call(‘sudo iptables-save &gt;/etc/iptables-rules’,shell=True)<br>subprocess.call(‘sudo /etc/init.d/procps restart’,shell=True)<br>subprocess.call(‘sudo /etc/init.d/pptpd restart’,shell=True)</p>
+<h3 id="四-ubuntu下的pptpd连接客户端代码："><a href="#四-ubuntu下的pptpd连接客户端代码：" class="headerlink" title="四.ubuntu下的pptpd连接客户端代码："></a>四.ubuntu下的pptpd连接客户端代码：</h3><p>import subprocess<br>subprocess.call(‘sudo apt-get install pptp pptp-setup’,shell=True)<br>subprocess.call(‘sudo modprobe nf_conntrack_pptp’,shell=True)<br>subprocess.call(‘pptpsetup –create VPN –server 192.168.19.187 –username user2 –password user2yourmima –encrypt’,shell=True)<br>subprocess.call(‘pppd call VPN’,shell=True)<br>subprocess.call(‘ip a |grep ppp’,shell=True)</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blaxb.club/2018/04/19/linux上安装pptpd的python脚本文件/" data-id="cjg7n3be40006t47colpel8rr" class="article-share-link">分享</a>
+      <a data-url="http://blaxb.club/2018/04/19/linux上安装pptpd的python脚本文件/" data-id="cjg7n6hit0004po7c5xg15nv1" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
