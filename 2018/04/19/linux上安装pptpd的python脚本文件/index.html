@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="冰雪极客">
 <meta property="og:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-20T07:36:50.705Z">
+<meta property="og:updated_time" content="2018-04-20T08:42:25.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个可以在linux上安装pptpd的python脚本文件">
 <meta name="twitter:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
@@ -111,8 +111,9 @@
         <p>python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端</p>
 <a id="more"></a>
 <h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><h3 id="一-centos下的pptpd服务器代码："><a href="#一-centos下的pptpd服务器代码：" class="headerlink" title="一.centos下的pptpd服务器代码："></a>一.centos下的pptpd服务器代码：</h3><ul>
-<li>1.代码如下：<br>import subprocess<br>subprocess.call(‘yum install ppp -y’,shell=True)<br>subprocess.call(‘rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True</a>)<br>subprocess.call(‘yum install pptpd -y’,shell=True)</li>
+<li>1.代码如下：</li>
 </ul>
+<p>import subprocess<br>subprocess.call(‘yum install ppp -y’,shell=True)<br>subprocess.call(‘rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True</a>)<br>subprocess.call(‘yum install pptpd -y’,shell=True)</p>
 <p>with open(“/etc/pptpd.conf”, “r”) as f1:<br>d1 = f1.readlines()<br>with open(“/etc/pptpd.conf”, “w”) as f_w1:<br>    for line in d1:<br>        line = line.replace(“#localip 192.168.0.1”, “localip 192.168.1.1”)<br>        line = line.replace(“#remoteip 192.168.0.234-238,192.168.0.245”, “remoteip 192.168.1.2-238”)<br>        f_w1.write(line)     </p>
 <p>with open(“/etc/ppp/options.pptpd”, “r”) as f2:<br>    d2 = f2.readlines()<br>with open(“/etc/ppp/options.pptpd”, “w”) as f_w2:<br>     for line in d2:<br>         line = line.replace(“#ms-dns 10.0.0.1”, “ms-dns 8.8.8.8”)<br>         line = line.replace(“#ms-dns 10.0.0.2”, “ms-dns 4.4.4.4”)<br>         f_w2.write(line)</p>
 <p>with open(“/etc/sysctl.conf”, “r”) as f4:<br>    d4 = f4.readlines()<br>with open(“/etc/sysctl.conf”, “w”) as f_w4:<br>    for line in d4:<br>        line = line.replace(“net.ipv4.ip_forward = 0”, “net.ipv4.ip_forward = 1”)<br>        f_w4.write(line)</p>
@@ -134,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blaxb.club/2018/04/19/linux上安装pptpd的python脚本文件/" data-id="cjg7n6hit0004po7c5xg15nv1" class="article-share-link">分享</a>
+      <a data-url="http://blaxb.club/2018/04/19/linux上安装pptpd的python脚本文件/" data-id="cjg7pkx4q0009wg7cwlt9xybg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
