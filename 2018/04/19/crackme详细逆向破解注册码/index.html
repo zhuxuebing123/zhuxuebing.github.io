@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>详细记录我的一次crackme逆向破解注册码 | 冰雪极客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是一个入门级的逆向破解，详细记录了我的分析过程">
+<meta name="keywords" content="必备技能,ODBG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详细记录我的一次crackme逆向破解注册码">
+<meta property="og:url" content="http://blaxb.club/2018/04/19/crackme详细逆向破解注册码/index.html">
+<meta property="og:site_name" content="冰雪极客">
+<meta property="og:description" content="这是一个入门级的逆向破解，详细记录了我的分析过程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%911.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%912.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%913.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%914.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%915.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%916.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%917.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%918.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%919.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9110.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9111.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9112.PNG">
+<meta property="og:updated_time" content="2017-10-25T11:57:54.339Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详细记录我的一次crackme逆向破解注册码">
+<meta name="twitter:description" content="这是一个入门级的逆向破解，详细记录了我的分析过程">
+<meta name="twitter:image" content="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%911.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+  <script src="https://leancloud.cn/scripts/lib/av-0.4.6.min.js"></script>
+  <script>AV.initialize("xXLDDTEJF3TRoNB9faUcGDzD-gzGzoHsz", "US42m8rvmJXnByepnyYvYA27");</script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/images/avatar.jpg">
+    <h2 class="author">冰哥</h2>
+    <h3 class="description">安全工程狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="必备技能-crackme详细逆向破解注册码" class="wow slideInRight article article-type-必备技能" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/19/crackme详细逆向破解注册码/" class="article-date">
+  <time class="post-time" datetime="2018-04-19T13:52:45.939Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br/>
+    <span class="post-day">19</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      详细记录我的一次crackme逆向破解注册码
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/破解逆向/">破解逆向</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个入门级的逆向破解，详细记录了我的分析过程</p>
+<a id="more"></a>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><blockquote>
+<p>我这里把壳脱掉来分析，附件是脱壳后的文件，直接就可以拿来用。先说一下一般软件破解的流程：拿到一个软件先别接着马上用 OllyDBG 调试，先运行一下，有帮助文档的最好先看一下帮助，熟悉一下软件的使用方法，再看看注册的方式。如果是序列号方式可以先输个假的来试一下，看看有什么反应，也给我们破解留下一些有用的线索。如果没有输入注册码的地方，要考虑一下是不是读取注册表或 Key 文件（一般称 keyfile，就是程序读取一个文件中的内容来判断是否注册），这些可以用其它工具来辅助分析。获得程序的一些基本信息后，还要用查壳的工具来查一下程序是否加了壳，若没壳的话看看程序是什么编译器编的，如 VC、Delphi、VB 等。这样的查壳工具有 PEiD 和 FI。有壳的话我们要尽量脱了壳后再来用 OllyDBG 调试，特殊情况下也可带壳调试。下面进入正题：我们先来运行一下这个 crackme（用 PEiD 检测显示是 Delphi 编的），界面如图：</p>
+</blockquote>
+<p> <img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%911.PNG" alt="图1"></p>
+<blockquote>
+<p>这个 crackme 已经把用户名和注册码都输好了，省得我们动手^_^。我们在那个“Register now !”按钮上点击一下，将会跳出一个对话框：</p>
+</blockquote>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%912.PNG" alt="图2"></p>
+<blockquote>
+<p>可以看见关键语句“Wrong Serial, try again!”，启动OD,载入CrackMe3.exe</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%913.PNG" alt="图3"></p>
+<p>在反汇编窗口鼠标右键，中文搜索引擎-&gt;智能搜索，按Ctrl+F查找”Wrong Serial, try again!”,</p>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%914.PNG" alt="图4"></p>
+<p>在我们找到的字串上双击来到反汇编窗口</p>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%915.PNG" alt="图5"></p>
+<blockquote>
+<p>见上图，为了看看是否还有其他的参考，可以通过选择右键菜单查找参考-&gt;立即数，会出来一个对话框：</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%916.PNG" alt="图6"></p>
+<blockquote>
+<p>分别双击上面标出的两个地址，我们会来到对应的位置：</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%917.PNG" alt="图7"></p>
+<blockquote>
+<p>大家注意看一下上面的注释，我在上面标了两个关键点。有人可能要问，你怎么知道那两个地方是关键点？其实很简单，我是根据查看是哪条指令跳到“wrong serial,try again”这条字串对应的指令来决定的。我们在上图中地址 00440F2C 处按 F2 键设个断点,现在我们按 F9 键，程序已运行起来了。我在上面那个编辑框中随便输入一下，如 CCDebuger，下面那个编辑框我还保留为原来的“754-GFX-IER-954”，我们点一下那个“Register now !”按钮，呵，OllyDBG 跳了出来，暂停在我们下的断点处。我们看一下信息窗口，你应该发现了你刚才输入的内容了吧？我这里显示是这样：</p>
+<p>堆栈 SS:[0019F874]=02219B6C, (ASCII “CCDebuger”)<br>EAX=00000009</p>
+</blockquote>
+<blockquote>
+<p>上面的内存地址 02219B6C 中就是我们刚才输入的内容，我这里是 CCDebuger。你可以在 堆栈 SS:[0019F874]=02219B6C, (ASCII “CCDebuger”) 这条内容上左击选择一下，再点右键，在弹出菜单中选择“数据窗口中跟随数值”，你就会在下面的数据窗口中看到你刚才输入的内容。而 EAX=00000009 指的是你输入内容的长度。如我输入的 CCDebuger 是9个字符。如下图所示：</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%918.PNG" alt="图8"></p>
+<blockquote>
+<p>现在我们来按 F8 键一步步分析一下：<br>在00440F2C行双击[local.1]，在出现的窗口上点击汇编按钮，MOV EAX,[local.1]变成了MOV EAX, DWORD PTR SS:[EBP-0x4]，在可以看到寄存器窗口的EBP=0019F878,则EBP-0x4=0019F874，可以看到刚好就是信息面板窗口的的地址，所以可以看出这句话就是<br>“把我们输入的内容送到EAX”，备注一下，同理可依次备注，如图</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%919.PNG" alt="图9"></p>
+<blockquote>
+<p>当我们按 F8 键走到 00440F34 |. E8 F32BFCFF     CALL CrackMe3.00403B2C 这一句时，我们按一下 F7 键，进入这个 CALL。<br>我们所看到的那些 PUSH EBX、 PUSH ESI 等都是调用子程序保存堆栈时用的指令，不用管它，按 F8 键一步步过来，我们只关心关键部分：<br>结合寄存器的值和信息面板窗口的显示，依次备注各语句</p>
+<p>00403B2C /$ 53              PUSH EBX<br>00403B2D |. 56              PUSH ESI<br>00403B2E |. 57              PUSH EDI<br>00403B2F |. 89C6            MOV ESI,EAX                         ; 把EAX内我们输入的用户名送到 ESI<br>00403B31 |. 89D7            MOV EDI,EDX                         ; 把EDX内的数据“Registered User”送到EDI<br>00403B33 |. 39D0            CMP EAX,EDX                         ; 用“Registered User”和我们输入的用户名作比较<br>00403B35 |. 0F84 8F000000   JE CrackMe3.00403BCA                ; 相同则跳<br>00403B3B |. 85F6            TEST ESI,ESI                        ; 看看ESI中是否有数据，主要是看看我们有没有输入用户名<br>00403B3D |. 74 68           JE SHORT CrackMe3.00403BA7          ; 用户名为空则跳<br>00403B3F |. 85FF            TEST EDI,EDI<br>00403B41 |. 74 6B           JE SHORT CrackMe3.00403BAE<br>00403B43 |. 8B46 FC         MOV EAX,DWORD PTR DS:[ESI-4]        ; 用户名长度送EAX<br>00403B46 |. 8B57 FC         MOV EDX,DWORD PTR DS:[EDI-4]        ; “Registered User”字串的长度送EDX<br>00403B49 |. 29D0            SUB EAX,EDX                         ; 把用户名长度和“Registered User”字串长度相减<br>00403B4B |. 77 02           JA SHORT CrackMe3.00403B4F          ; 用户名长度大于“Registered User”长度则跳<br>00403B4D |. 01C2            ADD EDX,EAX                         ; 把减后值与“Registered User”长度相加，即用户名长度<br>00403B4F |&gt; 52              PUSH EDX<br>00403B50 |. C1EA 02         SHR EDX,2                           ; 用户名长度值右移2位，这里相当于长度除以4<br>00403B53 |. 74 26           JE SHORT CrackMe3.00403B7B          ; 上面的指令及这条指令就是判断用户名长度最少不能低于4<br>00403B55 |&gt; 8B0E            MOV ECX,DWORD PTR DS:[ESI]          ; 把我们输入的用户名送到ECX（此处用数据窗口跟随确认传输的值）<br>00403B57 |. 8B1F            MOV EBX,DWORD PTR DS:[EDI]          ; 把“Registered User”送到EBX<br>00403B59 |. 39D9            CMP ECX,EBX                         ; 比较<br>00403B5B |. 75 58           JNZ SHORT CrackMe3.00403BB5         ; 不等则跳转（即完蛋）</p>
+</blockquote>
+<blockquote>
+<p>根据上面的分析，我们知道用户名必须是“Registered User”。我们按 F9 键让程序运行(跳转了），出现错误对话框，点确定，重新在第一个编辑框中输入“Registered User”，再次点击那个“Register now !”按钮，被 OllyDBG 拦下。因为地址 00440F34 处的那个 CALL 我们已经分析清楚了，这次就不用再按 F7 键跟进去了，直接按 F8 键通过。我们一路按 F8 键，来到第二个关键代码处：</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9110.PNG" alt="图10"></p>
+<blockquote>
+<p>大家注意看一下，地址 00440F51 处的 CALL CrackMe3.00403B2C 和上面我们分析的地址 00440F34 处的 CALL CrackMe3.00403B2C 是不是汇编指令都一样啊？这说明检测用户名和注册码是用的同一个子程序。而这个子程序 CALL 我们在上面已经分析过了。我们执行到现在可以很容易得出结论，这个 CALL 也就是把我们输入的注册码与 00440F4C 地址处指令后的“GFX-754-IER-954”作比较，相等则 OK。好了，我们已经得到足够的信息了。ALT+B打开断点窗口</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9111.PNG" alt="图11"></p>
+<blockquote>
+<p>为什么要做这一步，而不是把这个断点删除呢？这里主要是为了保险一点，万一分析错误，我们还要接着分析，要是把断点删除了就要做一些重复工作了。还是先禁用一下，如果经过实际验证证明我们的分析是正确的，再删不迟。现在我们把断点禁用，在 OllyDBG 中按 F9 键让程序运行。输入我们经分析得出的内容：<br>用户名：Registered User<br>注册码：GFX-754-IER-954<br>点击“Register now !”按钮，呵呵，终于成功了：</p>
+</blockquote>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E9%80%86%E5%90%9112.PNG" alt="图12"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2018/04/19/crackme详细逆向破解注册码/" data-id="cjg7bnm8t00069o7cgg4lvq4p" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ODBG/">ODBG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/19/hexo+github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          详细讲解Hexo+github搭建个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/19/centos搭建vpn服务器，客户端/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">用centos虚拟机搭建VPN服务器,客户端</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+    <!-- UY BEGIN -->
+    <section id="comments">
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+    </section>
+    <!-- UY END -->
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">冰雪极客</h1>
+    <h2 class="blog-subtitle">不忘初心  ~~~~~~~~~~  方得始终</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/images/avatar.jpg">
+    <h2 class="author">冰哥</h2>
+    <h3 class="description">安全工程狗</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/zhuxuebing123" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blxab.club/2017/08/07/%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99%E5%A4%A7%E5%85%A8/" target="_blank" title="学习网站大全">
+          学习网站大全
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>重要学习网站</h2>
+      
+        <a class="hvr-bounce-in" href="http://bbs.pediy.com/" target="_blank" title="看雪论坛">
+          看雪论坛
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.shiyanbar.com/courses/tag/1" target="_blank" title="CTF实验吧">
+          CTF实验吧
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.fishc.com/" target="_blank" title="鱼C论坛">
+          鱼C论坛
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.52pojie.cn/portal.php" target="_blank" title="吾爱破解">
+          吾爱破解
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://cuiqingcai.com/1052.html" target="_blank" title="爬虫教程">
+          爬虫教程
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://www.imooc.com/?from=360ppc" target="_blank" title="慕课网">
+          慕课网
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+    
+    <div class="widget-wrap">
+    <h3 class="widget-title">浏览数目</h3>
+    <div class="widget">
+      <ul class="popularlist">
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 冰哥<br>
+      
+        |<script src="http://s11.cnzz.com/z_stat.php?id=1273480958&web_id=1273480958" language="JavaScript"></script>
+         <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+         </script>
+      
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+    
+  </div>
+</footer>
+
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("xXLDDTEJF3TRoNB9faUcGDzD-gzGzoHsz", "US42m8rvmJXnByepnyYvYA27");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+        url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query=new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results){
+            if(results.length>0)
+            {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            }
+            else
+            {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter){
+                    //alert('New object created');
+                    },
+                    error: function(newcounter,error){
+                    alert('Failed to create');
+                    }
+                    });
+            }
+        },
+        error: function(error){
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function(){
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1)
+       addCount(Counter);
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results){
+                for(var i=0;i<results.length;i++)    
+                {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error){
+            alert("Error:"+error.code+" "+error.message);
+        }
+        }
+    )
+    });
+  </div>
+</body>
+</html>
