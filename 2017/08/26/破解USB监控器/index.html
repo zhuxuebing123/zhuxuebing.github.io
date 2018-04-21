@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 冰雪极客</title>
+  <title>破解USB监控器实例&#34; | 冰雪极客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安全工程狗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://blaxb.club/tags/index.html">
+  <meta name="description" content="我的破解实例1">
+<meta name="keywords" content="ODBG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="破解USB监控器实例&quot;">
+<meta property="og:url" content="http://blaxb.club/2017/08/26/破解USB监控器/index.html">
 <meta property="og:site_name" content="冰雪极客">
-<meta property="og:description" content="安全工程狗">
+<meta property="og:description" content="我的破解实例1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-07T03:38:26.041Z">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/2.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/3.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/4.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/6.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/7.PNG">
+<meta property="og:updated_time" content="2018-04-21T04:07:22.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="安全工程狗">
+<meta name="twitter:title" content="破解USB监控器实例&quot;">
+<meta name="twitter:description" content="我的破解实例1">
+<meta name="twitter:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG">
   
     <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
   
@@ -74,17 +82,109 @@
   </div>
 </div>
 
-        <section id="main"><article  class="animated rubberBand article article-type-" >
+        <section id="main"><article id="破解-破解USB监控器" class="wow slideInRight article article-type-破解" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/26/破解USB监控器/" class="article-date">
+  <time class="post-time" datetime="2017-08-26T04:00:34.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
   <div class="article-inner">
-    <div class="tag-box">
-      <h1>标签</h1>
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      破解USB监控器实例&#34;
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/破解逆向/">破解逆向</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        <a href="/tags/ODBG/" style="font-size: 14px;">ODBG</a> <a href="/tags/其他/" style="font-size: 28px;">其他</a> <a href="/tags/必备技能/" style="font-size: 21px;">必备技能</a>
+        <p>我的破解实例1</p>
+<a id="more"></a>
+<h2 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h2><ul>
+<li>1.下载USB实例：<br>  <a href="http://pan.baidu.com/s/1dEDiSYt" target="_blank" rel="noopener">http://pan.baidu.com/s/1dEDiSYt</a>   密码：srpe</li>
+</ul>
+<ul>
+<li><p>2.用OD载入软件：</p>
+<p> 点击F9运行</p>
+<p> 如图:</p>
+<p> <img src="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" alt=""></p>
+</li>
+</ul>
+<p>   点击注册，输入任意注册码，确定，显示关键语句“注册失败”</p>
+<p>   如图：  </p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/2.PNG" alt=""></p>
+<p>   鼠标右键选择中文搜索下的智能搜索</p>
+<p>   如图：</p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/3.PNG" alt="图三"></p>
+<p>   按ctrl+F搜索“注册失败”找到并点击直接到达关键语句处，<br>   在注册失败上面有注册成功字样，找到注册成功上面的关键跳转语句JG</p>
+<p>   如图：</p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/4.PNG" alt="图四"></p>
+<p>   可以看到实现的跳转直接跳过注册成功到注册失败上方，我们汇编JG跳转取反指令即可避免跳转</p>
+<p>   如图： </p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/6.PNG" alt="图五"></p>
+<p>   右键保存到可执行文件，选择，再右键保存文件，打开软件输入任意注册码，确定，显示注册成功。  </p>
+<p>   如图：</p>
+<p>   <img src="http://ouefev05d.bkt.clouddn.com/7.PNG" alt="图六"></p>
+<p>   破解成功！！！</p>
+
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2017/08/26/破解USB监控器/" data-id="cjg8v4xjs000e3w7c3ivsquw8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ODBG/">ODBG</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/12/VS+QT/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          VS2013+QT搭建QT编程环境
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/09/hexo+github/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">详细讲解Hexo+github搭建个人博客</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+<!-- UY END -->
+  
 </section>
         
           <aside id="sidebar">

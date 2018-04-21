@@ -3,19 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 冰雪极客</title>
+  <title>破解获得注册码 | 冰雪极客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安全工程狗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://blaxb.club/tags/index.html">
+  <meta name="description" content="在实验吧上破解一个软件获得注册码">
+<meta name="keywords" content="ODBG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="破解获得注册码">
+<meta property="og:url" content="http://blaxb.club/2017/11/13/破解获取注册码/index.html">
 <meta property="og:site_name" content="冰雪极客">
-<meta property="og:description" content="安全工程狗">
+<meta property="og:description" content="在实验吧上破解一个软件获得注册码">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-07T03:38:26.041Z">
+<meta property="og:image" content="http://i.imgur.com/RgBNr6j.png">
+<meta property="og:image" content="http://i.imgur.com/OtYS35B.png">
+<meta property="og:image" content="http://i.imgur.com/WmSZgr1.png">
+<meta property="og:image" content="http://i.imgur.com/28Rurx8.png">
+<meta property="og:image" content="http://i.imgur.com/z31ZiQp.png">
+<meta property="og:image" content="http://i.imgur.com/8sBRzIv.png">
+<meta property="og:image" content="http://i.imgur.com/2JkbBgw.png">
+<meta property="og:updated_time" content="2018-04-21T04:07:22.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="安全工程狗">
+<meta name="twitter:title" content="破解获得注册码">
+<meta name="twitter:description" content="在实验吧上破解一个软件获得注册码">
+<meta name="twitter:image" content="http://i.imgur.com/RgBNr6j.png">
   
     <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
   
@@ -74,17 +83,110 @@
   </div>
 </div>
 
-        <section id="main"><article  class="animated rubberBand article article-type-" >
+        <section id="main"><article id="破解获得注册码-破解获取注册码" class="wow slideInRight article article-type-破解获得注册码" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/13/破解获取注册码/" class="article-date">
+  <time class="post-time" datetime="2017-11-13T04:01:00.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
   <div class="article-inner">
-    <div class="tag-box">
-      <h1>标签</h1>
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      破解获得注册码
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/破解逆向/">破解逆向</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        <a href="/tags/ODBG/" style="font-size: 14px;">ODBG</a> <a href="/tags/其他/" style="font-size: 28px;">其他</a> <a href="/tags/必备技能/" style="font-size: 21px;">必备技能</a>
+        <p>在实验吧上破解一个软件获得注册码<br><a id="more"></a><br>利用查找字符串的方法下断点追出软件内的注册码，软件登录时会提供关键字，找到关键CALL下断点，然后单步追出注册码。</p>
+<h3 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下:"></a>步骤如下:</h3><ul>
+<li><p>1.用PEID查壳 如图</p>
+<p>  <img src="http://i.imgur.com/RgBNr6j.png" alt=""></p>
+<p>  所以该软件为无壳</p>
+</li>
+<li><p>二、利用OllyDBG程序暴力破解软件</p>
+<ul>
+<li><p>2.1 将软件载入OllyDBG，单击汇编窗口右键菜单选择“中文搜索引擎“-&gt;”智能搜索”.如图</p>
+<p><img src="http://i.imgur.com/OtYS35B.png" alt=""></p>
+</li>
+<li><p>2.2 在弹出框按ctrol+F查找Name/Code mis-match Try again。 如图：<br><img src="http://i.imgur.com/WmSZgr1.png" alt=""></p>
+<p>双击这一行，跳转到反汇编窗口对应的那行</p>
+</li>
+<li><p>2.3 向上查找关键跳转，接着向上查找关键call，按下F2下断点。如图：</p>
+<p><img src="http://i.imgur.com/28Rurx8.png" alt=""></p>
+</li>
+<li><p>2.4 单击运行，进入软件界面，选择注册面，随意输入注册账号和密码（看看在错误的账号和密码下，call是否会实现）</p>
+<p><img src="http://i.imgur.com/z31ZiQp.png" alt=""></p>
+</li>
+<li><p>2.5 在该关键call处暂停，按F7进入CALL函数中查找序列号，然后F8单步跟踪直到找到对应的注册码，如图：</p>
+<p><img src="http://i.imgur.com/8sBRzIv.png" alt=""></p>
+</li>
+<li><p>2.6 把对应的用户名zz和密码3E56CACFBC3EC692FEE22DFA3DB7F8输入软件，注册成功，如图：</p>
+<p><img src="http://i.imgur.com/2JkbBgw.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2017/11/13/破解获取注册码/" data-id="cjg8v4xjx000j3w7c6rrmxwlt" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ODBG/">ODBG</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/21/软件开发的学习路线/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          软件开发的学习线路
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/21/安装JDK,并安装pycharm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">在Ubuntu中怎么安装JDK,并安装pycharm</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+<!-- UY END -->
+  
 </section>
         
           <aside id="sidebar">

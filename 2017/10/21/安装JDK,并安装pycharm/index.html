@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 冰雪极客</title>
+  <title>在Ubuntu中怎么安装JDK,并安装pycharm | 冰雪极客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安全工程狗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://blaxb.club/tags/index.html">
+  <meta name="description" content="搭建在ubuntu上的pyton编辑器pycharm">
+<meta name="keywords" content="其他,必备技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Ubuntu中怎么安装JDK,并安装pycharm">
+<meta property="og:url" content="http://blaxb.club/2017/10/21/安装JDK,并安装pycharm/index.html">
 <meta property="og:site_name" content="冰雪极客">
-<meta property="og:description" content="安全工程狗">
+<meta property="og:description" content="搭建在ubuntu上的pyton编辑器pycharm">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-07T03:38:26.041Z">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E5%AE%89%E8%A3%85jdk1.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E5%AE%89%E8%A3%85jdk2.PNG">
+<meta property="og:updated_time" content="2018-04-21T04:07:22.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="安全工程狗">
+<meta name="twitter:title" content="在Ubuntu中怎么安装JDK,并安装pycharm">
+<meta name="twitter:description" content="搭建在ubuntu上的pyton编辑器pycharm">
+<meta name="twitter:image" content="http://ouefev05d.bkt.clouddn.com/%E5%AE%89%E8%A3%85jdk1.PNG">
   
     <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
   
@@ -74,17 +78,112 @@
   </div>
 </div>
 
-        <section id="main"><article  class="animated rubberBand article article-type-" >
+        <section id="main"><article id="必备技能-安装JDK,并安装pycharm" class="wow slideInRight article article-type-必备技能" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/21/安装JDK,并安装pycharm/" class="article-date">
+  <time class="post-time" datetime="2017-10-21T04:00:19.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
   <div class="article-inner">
-    <div class="tag-box">
-      <h1>标签</h1>
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在Ubuntu中怎么安装JDK,并安装pycharm
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/必备技能/">必备技能</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        <a href="/tags/ODBG/" style="font-size: 14px;">ODBG</a> <a href="/tags/其他/" style="font-size: 28px;">其他</a> <a href="/tags/必备技能/" style="font-size: 21px;">必备技能</a>
+        <p>搭建在ubuntu上的pyton编辑器pycharm</p>
+<a id="more"></a>
+<h2 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h2><h3 id="一-安装JDK："><a href="#一-安装JDK：" class="headerlink" title="一.安装JDK："></a>一.安装JDK：</h3><ul>
+<li><ol>
+<li>ubuntu使用的是openjdk，我门要首先找到适合的jdk版本。</li>
+<li>在终端输入命令：apt-cache search openjdk<br>  如图<br><img src="http://ouefev05d.bkt.clouddn.com/%E5%AE%89%E8%A3%85jdk1.PNG" alt="图一">  </li>
+<li><p>从搜索的列表里找到我们需要安装的jdk版本<br>oracle-java9-installer - Oracle Java(TM) Development Kit (JDK) 9</p>
+</li>
+<li><p>执行安装命令：sudo apt-get install oracle-java9-installer</p>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="5">
+<li><p>我们可以通过java－version命令来验证安装结果。</p>
+</li>
+<li><p>如果能看到上图的现实结果证明已经安装成功了。</p>
+<p><img src="http://ouefev05d.bkt.clouddn.com/%E5%AE%89%E8%A3%85jdk2.PNG" alt="图一">  </p>
+</li>
+</ol>
+<h3 id="二-安装pycharm："><a href="#二-安装pycharm：" class="headerlink" title="二.安装pycharm："></a>二.安装pycharm：</h3><ul>
+<li><ol>
+<li><p>官网下载地址：<a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download/</a><br>这里的PyCharm有付费和免费版本，我们使用免费版本（Community Edition）就够用。</p>
+<p>当前的版本是pycharm-community-4.0.4，下载的文件是.tar.gz压缩，我们把下载的文件放到可知的盘符文件里，然后需要进行解压。</p>
+<p>解压完毕之后，在bin文件夹中pycharm.sh执行文件进行安装。安装的时候会提示”No JDK found. Please validate either PYCHARM_JDK, JDK_HOME or JAVA_HOME”的错误，看来暂时还不能安装，需要安装JDK等组件包环境才可以。</p>
+</li>
+<li><p>安装PyCharm工具<br>目前环境已经配置完毕，然后我们再执行sh pycharm.sh文件安装。</p>
+</li>
+</ol>
+</li>
+</ul>
+
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2017/10/21/安装JDK,并安装pycharm/" data-id="cjg8v4xjy000m3w7ctu2z2tzk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/13/破解获取注册码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          破解获得注册码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/09/12/VS+QT/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">VS2013+QT搭建QT编程环境</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+<!-- UY END -->
+  
 </section>
         
           <aside id="sidebar">

@@ -3,19 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 冰雪极客</title>
+  <title>用centos虚拟机搭建VPN服务器,客户端 | 冰雪极客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安全工程狗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://blaxb.club/tags/index.html">
+  <meta name="description" content="项目需要，用搭建三个centos虚拟机，中一个做服务器，另两个为客户端，使用的pptpd搭建，成功实现连接。">
+<meta name="keywords" content="其他,必备技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用centos虚拟机搭建VPN服务器,客户端">
+<meta property="og:url" content="http://blaxb.club/2017/05/27/centos搭建vpn服务器，客户端/index.html">
 <meta property="og:site_name" content="冰雪极客">
-<meta property="og:description" content="安全工程狗">
+<meta property="og:description" content="项目需要，用搭建三个centos虚拟机，中一个做服务器，另两个为客户端，使用的pptpd搭建，成功实现连接。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-07T03:38:26.041Z">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B71.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B72.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B73.PNG">
+<meta property="og:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B74.PNG">
+<meta property="og:updated_time" content="2018-04-21T04:07:22.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="安全工程狗">
+<meta name="twitter:title" content="用centos虚拟机搭建VPN服务器,客户端">
+<meta name="twitter:description" content="项目需要，用搭建三个centos虚拟机，中一个做服务器，另两个为客户端，使用的pptpd搭建，成功实现连接。">
+<meta name="twitter:image" content="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B71.PNG">
   
     <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
   
@@ -74,17 +80,127 @@
   </div>
 </div>
 
-        <section id="main"><article  class="animated rubberBand article article-type-" >
+        <section id="main"><article id="必备技能-centos搭建vpn服务器，客户端" class="wow slideInRight article article-type-必备技能" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/27/centos搭建vpn服务器，客户端/" class="article-date">
+  <time class="post-time" datetime="2017-05-27T03:58:30.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
   <div class="article-inner">
-    <div class="tag-box">
-      <h1>标签</h1>
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用centos虚拟机搭建VPN服务器,客户端
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/必备技能/">必备技能</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        <a href="/tags/ODBG/" style="font-size: 14px;">ODBG</a> <a href="/tags/其他/" style="font-size: 28px;">其他</a> <a href="/tags/必备技能/" style="font-size: 21px;">必备技能</a>
+        <p>项目需要，用搭建三个centos虚拟机，中一个做服务器，另两个为客户端，使用的pptpd搭建，成功实现连接。</p>
+<a id="more"></a>
+<h2 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h2><h3 id="一-在vmware上安装三个centos虚拟机，我用的6-8版本，安装-很简单，网上有教程"><a href="#一-在vmware上安装三个centos虚拟机，我用的6-8版本，安装-很简单，网上有教程" class="headerlink" title="一.在vmware上安装三个centos虚拟机，我用的6.8版本，安装        很简单，网上有教程"></a>一.在vmware上安装三个centos虚拟机，我用的6.8版本，安装        很简单，网上有教程</h3><h3 id="二-在centos（1）上搭建pptpd做vpn服务器"><a href="#二-在centos（1）上搭建pptpd做vpn服务器" class="headerlink" title="二.在centos（1）上搭建pptpd做vpn服务器"></a>二.在centos（1）上搭建pptpd做vpn服务器</h3><ul>
+<li><p>1.) 安装ppp<br>  打开命令提示符，进入root用户<br>  输入命令：<br>  yum install ppp</p>
+</li>
+<li><p>2.）安装pptpd<br>  输入命令：<br>  yum update<br>  yum install pptpd</p>
+</li>
+<li><p>2.)rpm下载安装<br>  wget <a href="ftp://ftp.ntua.gr/pub/net/poptop/pptpd/pptpd-1.3.1/pptpd-1.1.3-4.i386.rpm" target="_blank" rel="noopener">ftp://ftp.ntua.gr/pub/net/poptop/pptpd/pptpd-1.3.1/pptpd-1.1.3-4.i386.rpm</a><br>  注意32位或者64位版本，否则吃大亏！鄙人就是在64位服务器上装了32位的pptpd，就给搞了很长时间才发现！！！！</p>
+</li>
+<li><p>3.）配置你的pppd和pptpd    </p>
+<ul>
+<li><p>1.配置/etc/pptpd.conf<br>输入输入命令：<br>vi /etc/pptpd.conf<br>如图<br><img src="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B71.PNG" alt="图一"><br>localip 192.168.1.1<br>remoteip 192.168.1.2-238<br>其中localip是VPN连接成功后，VPN server（就是你启动pptpd服务）的地址<br>remoteip是是 VPN 拨号过来后分配给客户端的地址 </p>
+</li>
+<li><p>2.配置/etc/ppp/options.pptpd<br>输入命令：<br>vi /etc/ppp/options.pptpd<br>如图：<br><img src="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B72.PNG" alt="图二"><br>更改了<br>ms-dns 8.8.8.8<br>ms-dns 8.8.4.4</p>
+</li>
+<li><p>3.编辑 /etc/ppp/chap-secrets<br>vi /etc/ppp/chap-secrets<br>如图：<br><img src="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B73.PNG" alt="图三"><br>添加用户，如zxb1为其中一个用户，123456为密码，*不能掉 </p>
+</li>
+<li><p>4.配置文件/etc/sysctl.conf<br>vim /etc/sysctl.conf<br>修改以下内容开启ip转发：<br>net.ipv4.ip_forward = 1<br>保存、退出后执行：<br>sysctl -p   </p>
+</li>
+<li><p>5.打开防火墙端口<br>将Linux服务器的1723端口和47端口打开，并打开GRE协议。<br>iptables -D INPUT -j REJECT –reject-with icmp-host-prohibited<br>iptables -D FORWARD -j REJECT –reject-with icmp-host-prohibited<br>iptables -A INPUT -i lo -p all -j ACCEPT<br>iptables -A INPUT -p gre -j ACCEPT<br>iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT<br>iptables -A INPUT -p tcp -m tcp –dport 22 -j ACCEPT<br>iptables -A INPUT -p tcp -m tcp –dport 47 -j ACCEPT<br>iptables -A INPUT -p tcp -m tcp –dport 80 -j ACCEPT<br>iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT<br>iptables -A FORWARD -p tcp –syn -s 192.168.0.0/24 -j TCPMSS –set-mss 1356<br>iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE</p>
+<p>这个最蛋疼，开始没注意，能连接上怎么都打不开网页，搞了半天才发现DNS端口没有打开，差点昏死过去！！<br>service iptables save</p>
+<p>设置开机自启动<br>chkconfig pptpd on<br>chkconfig iptables on   </p>
+</li>
+</ul>
+</li>
+<li><p>4.）检测<br>  打开防火墙，打开服务器<br>  输入命令：     </p>
+<p>  service iptables restart<br>  service pptpd start</p>
+</li>
+</ul>
+<h3 id="三-在centos上连接pptpd服务器vpn客户端配置"><a href="#三-在centos上连接pptpd服务器vpn客户端配置" class="headerlink" title="三.在centos上连接pptpd服务器vpn客户端配置"></a>三.在centos上连接pptpd服务器vpn客户端配置</h3><ul>
+<li><p>1.）安装pptp和pptp-setup<br>  yum install pptp pptp-setup  </p>
+</li>
+<li><p>2.）创建配置<br>  pptpsetup –create test –server 192.168.19.65 –username zxb1 –password 1234546 –encrypt<br>  其中test为配置名随意起，192.168.19.65服务器的ip地址（vpn转接前的），zxb1是服务器分配的用户之一，123456为该用户密码。</p>
+</li>
+<li><p>3.）连接vpn<br>  pppd call test</p>
+</li>
+<li><p>4.)验证连接<br>   ip a |grep ppp<br>   如果此时没有丝毫反应，就说明连接失败，解决这个问题花了我好久，因为我用pptpsetup –create test –server 192.168.19.65 –username zxb1 –password 1234546 –encrypt –start这个命令时连接不成功，但是却没有报错，我只是感觉有可能是连接超时造成，在goole上用别人的办法终于解决了，是因为centos缺少 modprobe模块<br>   在2.）之前输入命令<br>   sudo modprobe nf_conntrack_pptp</p>
+</li>
+<li><p>5.)查看连接情况<br>  输入 route -n<br>  会看到网络中多了一个ppp0连接<br>  恭喜你已经连接成功</p>
+<p>  不过别高兴早了，在浏览器中输入IP11.cn查看网络情况，会发现网络根本没有经过vpn服务器，还是之前的网络，又花了2个小时找原因</p>
+<p>  原来是因为没有默认网关<br>  这时，你只需设置一个默认路由即可，例如：</p>
+<p>  route add -net 0.0.0.0 dev ppp0</p>
+<p>  route -n<br>  如图<br>  <img src="http://ouefev05d.bkt.clouddn.com/%E6%8D%95%E8%8E%B74.PNG" alt="图四"></p>
+<p>  再次输入IP111.cn检查成功</p>
+</li>
+</ul>
+
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2017/05/27/centos搭建vpn服务器，客户端/" data-id="cjg8v4xjq000c3w7cy213al45" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/13/crackme详细逆向破解注册码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          详细记录我的一次crackme逆向破解注册码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/学习网站大全/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">我的学习网站大全</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+<!-- UY END -->
+  
 </section>
         
           <aside id="sidebar">

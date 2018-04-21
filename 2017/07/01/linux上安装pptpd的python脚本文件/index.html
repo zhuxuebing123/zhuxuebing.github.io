@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | 冰雪极客</title>
+  <title>一个可以在linux上安装pptpd的python脚本文件 | 冰雪极客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安全工程狗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://blaxb.club/tags/index.html">
+  <meta name="description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
+<meta name="keywords" content="其他,必备技能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个可以在linux上安装pptpd的python脚本文件">
+<meta property="og:url" content="http://blaxb.club/2017/07/01/linux上安装pptpd的python脚本文件/index.html">
 <meta property="og:site_name" content="冰雪极客">
-<meta property="og:description" content="安全工程狗">
+<meta property="og:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-07T03:38:26.041Z">
+<meta property="og:updated_time" content="2018-04-21T04:07:22.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="安全工程狗">
+<meta name="twitter:title" content="一个可以在linux上安装pptpd的python脚本文件">
+<meta name="twitter:description" content="python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端">
   
     <link rel="alternate" href="/atom.xml" title="冰雪极客" type="application/atom+xml">
   
@@ -74,17 +75,104 @@
   </div>
 </div>
 
-        <section id="main"><article  class="animated rubberBand article article-type-" >
+        <section id="main"><article id="必备技能-linux上安装pptpd的python脚本文件" class="wow slideInRight article article-type-必备技能" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/01/linux上安装pptpd的python脚本文件/" class="article-date">
+  <time class="post-time" datetime="2017-07-01T03:59:31.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
   <div class="article-inner">
-    <div class="tag-box">
-      <h1>标签</h1>
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个可以在linux上安装pptpd的python脚本文件
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/必备技能/">必备技能</a>
+  </div>
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-        <a href="/tags/ODBG/" style="font-size: 14px;">ODBG</a> <a href="/tags/其他/" style="font-size: 28px;">其他</a> <a href="/tags/必备技能/" style="font-size: 21px;">必备技能</a>
+        <p>python脚本文件，linux的centos和ubuntu 一键安装pptpd vpn服务器及其客户端</p>
+<a id="more"></a>
+<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><h3 id="一-centos下的pptpd服务器代码："><a href="#一-centos下的pptpd服务器代码：" class="headerlink" title="一.centos下的pptpd服务器代码："></a>一.centos下的pptpd服务器代码：</h3><ul>
+<li>1.代码如下：</li>
+</ul>
+<p>import subprocess<br>subprocess.call(‘yum install ppp -y’,shell=True)<br>subprocess.call(‘rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm&#39;,shell=True</a>)<br>subprocess.call(‘yum install pptpd -y’,shell=True)</p>
+<p>with open(“/etc/pptpd.conf”, “r”) as f1:<br>d1 = f1.readlines()<br>with open(“/etc/pptpd.conf”, “w”) as f_w1:<br>    for line in d1:<br>        line = line.replace(“#localip 192.168.0.1”, “localip 192.168.1.1”)<br>        line = line.replace(“#remoteip 192.168.0.234-238,192.168.0.245”, “remoteip 192.168.1.2-238”)<br>        f_w1.write(line)     </p>
+<p>with open(“/etc/ppp/options.pptpd”, “r”) as f2:<br>    d2 = f2.readlines()<br>with open(“/etc/ppp/options.pptpd”, “w”) as f_w2:<br>     for line in d2:<br>         line = line.replace(“#ms-dns 10.0.0.1”, “ms-dns 8.8.8.8”)<br>         line = line.replace(“#ms-dns 10.0.0.2”, “ms-dns 4.4.4.4”)<br>         f_w2.write(line)</p>
+<p>with open(“/etc/sysctl.conf”, “r”) as f4:<br>    d4 = f4.readlines()<br>with open(“/etc/sysctl.conf”, “w”) as f_w4:<br>    for line in d4:<br>        line = line.replace(“net.ipv4.ip_forward = 0”, “net.ipv4.ip_forward = 1”)<br>        f_w4.write(line)</p>
+<p>subprocess.call(‘sysctl -p’,shell=True)</p>
+<p>f3=open(“/etc/ppp/chap-secrets”,’a’)<br>for i in range(1,101):<br>    f3.write(“user”+str(i)+” pptpd”+” user”+str(i)+”yourmima”+” *”+”\n”)</p>
+<p>subprocess.call(‘iptables -D INPUT -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>subprocess.call(‘iptables -D FORWARD -j REJECT –reject-with icmp-host-prohibited’,shell=True)<br>subprocess.call(‘iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>subprocess.call(‘iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE’,shell=True)<br>subprocess.call(‘service iptables save’,shell=True)<br>subprocess.call(‘chkconfig pptpd on’,shell=True)<br>subprocess.call(‘chkconfig iptables on’,shell=True)<br>subprocess.call(‘service iptables restart’,shell=True)<br>subprocess.call(‘service pptpd start’,shell=True)</p>
+<h3 id="二-centos下的pptpd连接客户端代码："><a href="#二-centos下的pptpd连接客户端代码：" class="headerlink" title="二.centos下的pptpd连接客户端代码："></a>二.centos下的pptpd连接客户端代码：</h3><p>import subprocess<br>subprocess.call(‘yum -y install pptp pptp-setup’,shell=True)<br>subprocess.call(‘sudo modprobe nf_conntrack_pptp’,shell=True)<br>subprocess.call(‘pptpsetup –create VPN –server 192.168.19.187 –username user2 –password user2yourmima –encrypt’,shell=True)<br>subprocess.call(‘pppd call VPN’,shell=True)<br>subprocess.call(‘ip a |grep ppp’,shell=True)</p>
+<ul>
+<li><h3 id="三-ubuntu下的pptpd服务器代码："><a href="#三-ubuntu下的pptpd服务器代码：" class="headerlink" title="三.ubuntu下的pptpd服务器代码："></a>三.ubuntu下的pptpd服务器代码：</h3></li>
+</ul>
+<p>import subprocess<br>subprocess.call(‘sudo apt-get install pptpd -y’,shell=True)</p>
+<p>with open(“/etc/pptpd.conf”, “r”) as f1:<br>    d1 = f1.readlines()<br>with open(“/etc/pptpd.conf”, “w”) as f_w1:<br>    for line in d1:<br>        line = line.replace(“#localip 192.168.0.1”, “localip 192.168.1.1”)<br>        line = line.replace(“#remoteip 192.168.0.234-238,192.168.0.245”, “remoteip 192.168.1.2-238”)<br>        f_w1.write(line)     </p>
+<p>with open(“/etc/ppp/pptpd-options”, “r”) as f2:<br>    d2 = f2.readlines()<br>with open(“/etc/ppp/pptpd-options”, “w”) as f_w2:<br>    for line in d2:<br>         line = line.replace(“#ms-dns 10.0.0.1”, “ms-dns 8.8.8.8”)<br>         line = line.replace(“#ms-dns 10.0.0.2”, “ms-dns 8.8.4.4”)<br>         f_w2.write(line)</p>
+<p>f3=open(“/etc/ppp/chap-secrets”,’a’)<br>for i in range(1,101):<br>    f3.write(“user”+str(i)+” pptpd”+” user”+str(i)+”yourmima”+” *”+”\n”)</p>
+<p>with open(“/etc/sysctl.conf”, “r”) as f4:<br>    d4 = f4.readlines()<br>with open(“/etc/sysctl.conf”, “w”) as f_w4:<br>    for line in d4:<br>         line = line.replace(“#net.ipv4.ip_forward=1”, “net.ipv4.ip_forward=1”)<br>         f_w4.write(line)<br>subprocess.call(‘sysctl -p’,shell=True)<br>subprocess.call(‘/etc/init.d/procps restart’,shell=True)</p>
+<p>subprocess.call(‘sudo apt-get install iptables’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -i lo -p all -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A OUTPUT -p tcp –sport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A OUTPUT -p gre -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -i ppp+ -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A FORWARD -o ppp+ -j ACCEPT’,shell=True)<br>subprocess.call(‘iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m tcp –dport 21 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 22 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A INPUT -p tcp -m state –state NEW -m tcp –dport 1723 -j ACCEPT’,shell=True)<br>subprocess.call(‘sudo iptables -A FORWARD -p tcp –syn -s 192.168.1.0/24 -j TCPMSS –set-mss 1356’,shell=True)<br>subprocess.call(‘sudo iptables -A POSTROUTING -t nat -s 192.168.1.0/24 -j SNAT –to 192.168.19.156’,shell=True)<br>subprocess.call(‘sudo iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o ens33 -j MASQUERADE’,shell=True)<br>f5=open(“/etc/network/interfaces”,’a’)<br>f5.write(“pre-up iptables-restore &lt;/etc/iptables-rules”)<br>subprocess.call(‘sudo iptables-save &gt;/etc/iptables-rules’,shell=True)<br>subprocess.call(‘sudo /etc/init.d/procps restart’,shell=True)<br>subprocess.call(‘sudo /etc/init.d/pptpd restart’,shell=True)</p>
+<h3 id="四-ubuntu下的pptpd连接客户端代码："><a href="#四-ubuntu下的pptpd连接客户端代码：" class="headerlink" title="四.ubuntu下的pptpd连接客户端代码："></a>四.ubuntu下的pptpd连接客户端代码：</h3><p>import subprocess<br>subprocess.call(‘sudo apt-get install pptp pptp-setup’,shell=True)<br>subprocess.call(‘sudo modprobe nf_conntrack_pptp’,shell=True)<br>subprocess.call(‘pptpsetup –create VPN –server 192.168.19.187 –username user2 –password user2yourmima –encrypt’,shell=True)<br>subprocess.call(‘pppd call VPN’,shell=True)<br>subprocess.call(‘ip a |grep ppp’,shell=True)</p>
+
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://blaxb.club/2017/07/01/linux上安装pptpd的python脚本文件/" data-id="cjg8v4xjk00063w7cdj38s5gt" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/必备技能/">必备技能</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/09/hexo+github/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          详细讲解Hexo+github搭建个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/crackme详细逆向破解注册码/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">详细记录我的一次crackme逆向破解注册码</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+
+  
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141033"></script>
+<!-- UY END -->
+  
 </section>
         
           <aside id="sidebar">
